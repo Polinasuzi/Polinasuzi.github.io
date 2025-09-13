@@ -1,5 +1,4 @@
-<h1>hello</h1>
-<h2>Good morning!</h2>
+> Полинка:
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -17,8 +16,9 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
+            min-height: 100vh;
         }
 
         .resume {
@@ -26,7 +26,8 @@
             margin: 0 auto;
             background: white;
             padding: 30px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            border-radius: 10px;
         }
 
         .header {
@@ -40,19 +41,90 @@
             font-size: 28px;
             font-weight: bold;
             color: #007bff;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         .contact-info {
-            margin: 10px 0;
+            margin: 15px 0;
         }
 
         .contact-info p {
-            margin: 3px 0;
+            margin: 5px 0;
+        }
+
+        /* Стили для кнопок */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #0056b3, #004494);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #28a745, #1e7e34);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(45deg, #1e7e34, #145a23);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40,167,69,0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #dc3545, #c82333);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(45deg, #c82333, #a71e2a);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220,53,69,0.4);
+        }
+
+        .btn-warning {
+            background: linear-gradient(45deg, #ffc107, #e0a800);
+            color: #212529;
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(45deg, #e0a800, #c69500);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,193,7,0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .section-title {
@@ -65,17 +137,29 @@
         }
 
         .experience-item, .education-item {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
+            background: #e9ecef;
         }
 
         .job-title {
             font-weight: bold;
             font-size: 18px;
+            color: #495057;
         }
 
         .company {
-            color: #666;
-            font-style: italic;
+            color: #6c757d;
+
+> Полинка:
+font-style: italic;
         }
 
         .date {
@@ -91,24 +175,87 @@
         }
 
         .skills-list li {
-            background: #007bff;
+            background: linear-gradient(45deg, #007bff, #0056b3);
             color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
+            padding: 8px 18px;
+            border-radius: 20px;
             font-size: 14px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .skills-list li:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #0056b3, #004494);
         }
 
         .description {
             margin-top: 10px;
         }
 
+        .description li {
+            margin-bottom: 5px;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .resume {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .close-modal {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         @media (max-width: 600px) {
             .resume {
-                padding: 15px;
+                padding: 20px;
             }
             
             .name {
                 font-size: 24px;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
             }
         }
     </style>
@@ -124,12 +271,28 @@
                 <p>📍 Москва, Россия</p>
                 <p>🔗 linkedin.com/in/ivanov</p>
             </div>
+
+            <!-- Кнопки действий -->
+            <div class="buttons-container">
+                <button class="btn btn-primary" onclick="downloadResume()">
+                    📥 Скачать резюме
+                </button>
+                <button class="btn btn-secondary" onclick="contactMe()">
+                    📞 Связаться
+                </button>
+                <button class="btn btn-warning" onclick="showPortfolio()">
+                    🎨 Портфолио
+                </button>
+                <button class="btn btn-danger" onclick="printResume()">
+                    🖨️ Распечатать
+                </button>
+            </div>
         </div>
 
         <!-- О себе -->
         <div class="section">
             <h2 class="section-title">О себе</h2>
-            <p>Краткое описание ваших профессиональных качеств, целей и опыта. Опишите ваши сильные стороны и то, что вы ищете в новой должности.</p>
+            <p>Опытный веб-разработчик с более чем 5-летним стажем. Специализируюсь на создании современных, отзывчивых веб-приложений с использованием React, Vue.js и Node.js.</p>
         </div>
 
         <!-- Опыт работы -->
@@ -137,34 +300,36 @@
             <h2 class="section-title">Опыт работы</h2>
             
             <div class="experience-item">
-                <h3 class="job-title">Должность</h3>
-                <p class="company">Название компании | <span class="date">Январь 2020 - настоящее время</span></p>
+                <h3 class="job-title">Senior Frontend Developer</h3>
+                <p class="company">TechCorp | <span class="date">Январь 2020 - настоящее время</span></p>
                 <ul class="description">
-                    <li>Описание обязанностей и достижений</li>
-                    <li>Реализованные проекты</li>
-                    <li>Ключевые навыки, примененные на практике</li>
+
+> Полинка:
+<li>Разработка высоконагруженных SPA-приложений</li>
+                    <li>Оптимизация производительности (сокращение времени загрузки на 40%)</li>
+                    <li>Руководство командой из 5 разработчиков</li>
                 </ul>
             </div>
 
             <div class="experience-item">
-                <h3 class="job-title">Предыдущая должность</h3>
-                <p class="company">Другая компания | <span class="date">Март 2018 - Декабрь 2019</span></p>
+                <h3 class="job-title">Middle Frontend Developer</h3>
+                <p class="company">WebStudio | <span class="date">Март 2018 - Декабрь 2019</span></p>
                 <ul class="description">
-                    <li>Описание обязанностей</li>
-                    <li>Достижения и проекты</li>
+                    <li>Разработка клиентской части для e-commerce проектов</li>
+                    <li>Интеграция с REST API</li>
+                    <li>Code review и менторинг junior-разработчиков</li>
                 </ul>
             </div>
         </div>
 
-
-<!-- Образование -->
+        <!-- Образование -->
         <div class="section">
             <h2 class="section-title">Образование</h2>
             
             <div class="education-item">
-                <h3 class="job-title">Название университета</h3>
-                <p class="company">Специальность | <span class="date">2014 - 2018</span></p>
-                <p class="description">Степень, факультет</p>
+                <h3 class="job-title">МГТУ им. Баумана</h3>
+                <p class="company">Факультет информатики и систем управления | <span class="date">2014 - 2018</span></p>
+                <p class="description">Бакалавр компьютерных наук</p>
             </div>
         </div>
 
@@ -172,21 +337,75 @@
         <div class="section">
             <h2 class="section-title">Навыки</h2>
             <ul class="skills-list">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
+                <li>HTML5/CSS3</li>
+                <li>JavaScript/TypeScript</li>
                 <li>React</li>
+                <li>Vue.js</li>
+                <li>Node.js</li>
                 <li>Git</li>
-                <li>Английский язык</li>
-                <li>Командная работа</li>
+                <li>Webpack</li>
+                <li>Английский B2</li>
             </ul>
         </div>
 
         <!-- Дополнительная информация -->
         <div class="section">
             <h2 class="section-title">Дополнительная информация</h2>
-            <p>Курсы, сертификаты, хобби, волонтерская деятельность и другая relevant информация.</p>
+            <p>Сертификаты: AWS Certified Developer, React Advanced Patterns</p>
+            <p>Участие в хакатонах и конференциях (JSConf, Frontend Conf)</p>
         </div>
     </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <h2>Свяжитесь со мной</h2>
+            <p>Email: email@example.com</p>
+            <p>Телефон: +7 (999) 123-45-67</p>
+            <p>Я отвечу в течение 24 часов!</p>
+            <button class="close-modal" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        // Функции для кнопок
+        function downloadResume() {
+            alert('Функция скачивания резюме будет реализована позже!');
+            // Здесь можно добавить логику для скачивания PDF
+        }
+
+        function contactMe() {
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function showPortfolio() {
+            alert('Переход в портфолио...');
+            // window.open('https://your-portfolio.com', '_blank');
+        }
+
+        function printResume() {
+            window.print();
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Закрытие модального окна по клику вне его
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Анимация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.experience-item, .education-item');
+            items.forEach((item, index) => {
+                item.style.animation = fadeIn 0.6s ease-out ${index * 0.1}s both;
+            });
+        });
+    </script>
 </body>
 </html>
